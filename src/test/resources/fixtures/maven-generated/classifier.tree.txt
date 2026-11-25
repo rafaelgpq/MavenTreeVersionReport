@@ -1,0 +1,8 @@
+org.example.app:classifier-app:pom:1.0
++- org.example.lib:lib-a:jar:1.0:compile
+|  \- org.example.lib:shared:jar:1.0:compile
++- org.example.lib:lib-g:jar:1.0:compile
+|  \- org.example.lib:shared:jar:native:1.0:compile
++- org.example.lib:lib-h:jar:1.0:compile
+|  \- (org.example.lib:shared:jar:native:2.0:compile - omitted for conflict with 1.0)
+\- org.example.lib:shared:test-jar:tests:3.0:test

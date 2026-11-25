@@ -35,5 +35,6 @@ build/
 ### VS Code ###
 .vscode/
 
+# Private local captures (never committed); committed examples live under examples/.
 src/main/resources/deps.txt
 src/main/resources/pmp_dependency_analysis.csv

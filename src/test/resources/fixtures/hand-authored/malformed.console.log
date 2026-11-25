@@ -1,0 +1,5 @@
+[INFO] org.example:hand:pom:1.0
+[INFO] +- org.example:a:jar:1.0:compile
+[INFO] |  \- org.example:b:jar:1.0:compile
+[INFO]          \- org.example:orphan:jar:1.0:compile
+[INFO] -- org.example:legacy:jar:1.0:compile

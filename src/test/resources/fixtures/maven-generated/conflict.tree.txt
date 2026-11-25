@@ -1,0 +1,10 @@
+org.example.app:conflict-app:pom:1.0
++- org.example.lib:lib-a:jar:1.0:compile
+|  \- org.example.lib:shared:jar:1.0:compile
++- org.example.lib:lib-b:jar:1.0:compile
+|  \- (org.example.lib:shared:jar:2.0:compile - omitted for conflict with 1.0)
++- org.example.lib:lib-c:jar:1.0:test
+|  \- (org.example.lib:shared:jar:1.0:test - omitted for duplicate)
+\- org.example.lib:lib-d:jar:1.0:compile
+   \- org.example.lib:lib-e:jar:1.0:compile
+      \- (org.example.lib:shared:jar:3.0:compile - omitted for conflict with 1.0)

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example.app</groupId>
+    <artifactId>classifier-app</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    <!-- Separate identities: shared (jar), shared:native (jar with classifier), shared:tests (test-jar).
+         Only the native classifier differs in version across two parents (lib-g 1.0, lib-h 2.0). -->
+    <dependencies>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-a</artifactId><version>1.0</version></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-g</artifactId><version>1.0</version></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-h</artifactId><version>1.0</version></dependency>
+        <dependency>
+            <groupId>org.example.lib</groupId><artifactId>shared</artifactId><version>3.0</version>
+            <type>test-jar</type><scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

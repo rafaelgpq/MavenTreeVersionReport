@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parent and aggregator of the synthetic libraries used to generate fixture dependency trees. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example.fixture</groupId>
+    <artifactId>libs-parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <modules>
+        <module>shared-1.0</module>
+        <module>shared-2.0</module>
+        <module>shared-3.0</module>
+        <module>lib-a</module>
+        <module>lib-b</module>
+        <module>lib-c</module>
+        <module>lib-d</module>
+        <module>lib-e</module>
+        <module>lib-f</module>
+        <module>lib-g</module>
+        <module>lib-h</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin><artifactId>maven-clean-plugin</artifactId><version>3.5.0</version></plugin>
+                <plugin><artifactId>maven-resources-plugin</artifactId><version>3.3.1</version></plugin>
+                <plugin><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin>
+                <plugin><artifactId>maven-surefire-plugin</artifactId><version>3.5.2</version></plugin>
+                <plugin><artifactId>maven-jar-plugin</artifactId><version>3.4.2</version></plugin>
+                <plugin><artifactId>maven-install-plugin</artifactId><version>3.1.3</version></plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

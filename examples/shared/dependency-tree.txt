@@ -1,0 +1,5 @@
+org.example.demo:demo-app:pom:1.0
++- org.example:parent-a:jar:1.0:compile
+|  \- org.example:shared:jar:1.0:compile
+\- org.example:parent-b:jar:1.0:compile
+   \- (org.example:shared:jar:1.0:compile - omitted for duplicate)

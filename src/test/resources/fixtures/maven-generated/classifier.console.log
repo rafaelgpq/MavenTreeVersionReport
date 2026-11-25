@@ -1,0 +1,22 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< org.example.app:classifier-app >-------------------
+[INFO] Building classifier-app 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ classifier-app ---
+[INFO] org.example.app:classifier-app:pom:1.0
+[INFO] +- org.example.lib:lib-a:jar:1.0:compile
+[INFO] |  \- org.example.lib:shared:jar:1.0:compile
+[INFO] +- org.example.lib:lib-g:jar:1.0:compile
+[INFO] |  \- org.example.lib:shared:jar:native:1.0:compile
+[INFO] +- org.example.lib:lib-h:jar:1.0:compile
+[INFO] |  \- (org.example.lib:shared:jar:native:2.0:compile - omitted for conflict with 1.0)
+[INFO] \- org.example.lib:shared:test-jar:tests:3.0:test
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.977 s
+[INFO] Finished at: 2026-11-24T22:22:15-05:00
+[INFO] ------------------------------------------------------------------------

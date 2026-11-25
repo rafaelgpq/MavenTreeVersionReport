@@ -1,0 +1,4 @@
+# Captured Maven output is test data: never normalize its line endings or content.
+src/test/resources/fixtures/** -text
+# Windows PowerShell 5.1 reads CRLF scripts reliably.
+fixtures/generate-fixtures.ps1 text eol=crlf

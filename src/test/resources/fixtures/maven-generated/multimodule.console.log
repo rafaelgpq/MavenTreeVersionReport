@@ -1,0 +1,63 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] multi-parent                                                       [pom]
+[INFO] mod-one                                                            [pom]
+[INFO] mod-two                                                            [pom]
+[INFO] mod-three                                                          [pom]
+[INFO] 
+[INFO] -------------------< org.example.multi:multi-parent >-------------------
+[INFO] Building multi-parent 1.0                                          [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ multi-parent ---
+[INFO] org.example.multi:multi-parent:pom:1.0
+[INFO] 
+[INFO] ---------------------< org.example.multi:mod-one >----------------------
+[INFO] Building mod-one 1.0                                               [2/4]
+[INFO]   from mod-one\pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ mod-one ---
+[INFO] org.example.multi:mod-one:pom:1.0
+[INFO] +- org.example.lib:lib-a:jar:1.0:compile
+[INFO] |  \- org.example.lib:shared:jar:1.0:compile
+[INFO] \- org.example.lib:lib-c:jar:1.0:compile
+[INFO]    \- (org.example.lib:shared:jar:1.0:compile - omitted for duplicate)
+[INFO] 
+[INFO] ---------------------< org.example.multi:mod-two >----------------------
+[INFO] Building mod-two 1.0                                               [3/4]
+[INFO]   from mod-two\pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ mod-two ---
+[INFO] org.example.multi:mod-two:pom:1.0
+[INFO] \- org.example.lib:lib-b:jar:1.0:compile
+[INFO]    \- org.example.lib:shared:jar:2.0:compile
+[INFO] 
+[INFO] --------------------< org.example.multi:mod-three >---------------------
+[INFO] Building mod-three 1.0                                             [4/4]
+[INFO]   from mod-three\pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ mod-three ---
+[INFO] org.example.multi:mod-three:pom:1.0
+[INFO] +- org.example.lib:lib-a:jar:1.0:compile
+[INFO] |  \- org.example.lib:shared:jar:1.0:compile
+[INFO] \- org.example.lib:lib-b:jar:1.0:compile
+[INFO]    \- (org.example.lib:shared:jar:2.0:compile - omitted for conflict with 1.0)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for multi-parent 1.0:
+[INFO] 
+[INFO] multi-parent ....................................... SUCCESS [  0.898 s]
+[INFO] mod-one ............................................ SUCCESS [  0.015 s]
+[INFO] mod-two ............................................ SUCCESS [  0.005 s]
+[INFO] mod-three .......................................... SUCCESS [  0.003 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.083 s
+[INFO] Finished at: 2026-11-24T22:22:24-05:00
+[INFO] ------------------------------------------------------------------------

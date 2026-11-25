@@ -1,0 +1,24 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< org.example.app:conflict-app >--------------------
+[INFO] Building conflict-app 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.11.0:tree (default-cli) @ conflict-app ---
+[INFO] org.example.app:conflict-app:pom:1.0
+[INFO] +- org.example.lib:lib-a:jar:1.0:compile
+[INFO] |  \- org.example.lib:shared:jar:1.0:compile
+[INFO] +- org.example.lib:lib-b:jar:1.0:compile
+[INFO] |  \- (org.example.lib:shared:jar:2.0:compile - omitted for conflict with 1.0)
+[INFO] +- org.example.lib:lib-c:jar:1.0:test
+[INFO] |  \- (org.example.lib:shared:jar:1.0:test - omitted for duplicate)
+[INFO] \- org.example.lib:lib-d:jar:1.0:compile
+[INFO]    \- org.example.lib:lib-e:jar:1.0:compile
+[INFO]       \- (org.example.lib:shared:jar:3.0:compile - omitted for conflict with 1.0)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.024 s
+[INFO] Finished at: 2026-11-24T22:22:06-05:00
+[INFO] ------------------------------------------------------------------------

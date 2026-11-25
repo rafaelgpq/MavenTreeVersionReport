@@ -1,0 +1,14 @@
+org.example.multi:multi-parent:pom:1.0
+org.example.multi:mod-one:pom:1.0
++- org.example.lib:lib-a:jar:1.0:compile
+|  \- org.example.lib:shared:jar:1.0:compile
+\- org.example.lib:lib-c:jar:1.0:compile
+   \- (org.example.lib:shared:jar:1.0:compile - omitted for duplicate)
+org.example.multi:mod-two:pom:1.0
+\- org.example.lib:lib-b:jar:1.0:compile
+   \- org.example.lib:shared:jar:2.0:compile
+org.example.multi:mod-three:pom:1.0
++- org.example.lib:lib-a:jar:1.0:compile
+|  \- org.example.lib:shared:jar:1.0:compile
+\- org.example.lib:lib-b:jar:1.0:compile
+   \- (org.example.lib:shared:jar:2.0:compile - omitted for conflict with 1.0)

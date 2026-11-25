@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example.app</groupId>
+    <artifactId>managed-app</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    <!-- dependencyManagement pins shared to 2.0; lib-a requests 1.0, so the tree carries a "version managed from" annotation. -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency><groupId>org.example.lib</groupId><artifactId>shared</artifactId><version>2.0</version></dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-a</artifactId><version>1.0</version></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-b</artifactId><version>1.0</version></dependency>
+    </dependencies>
+</project>

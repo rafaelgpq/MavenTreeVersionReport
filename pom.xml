@@ -9,68 +9,19 @@
     <version>1.0-SNAPSHOT</version>
     <name>MavenTreeVersionReport</name>
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Language level 17; any JDK 17+ can build it. UTF-8 keeps report text identical across platforms. -->
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.12.2</junit.version>
         <mockito.version>5.18.0</mockito.version>
         <assertj.version>3.27.3</assertj.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.apache.maven.resolver</groupId>
-                <artifactId>maven-resolver</artifactId>
-                <version>1.9.16</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <!-- Maven Resolver core (no BOM) -->
-        <dependency>
-            <groupId>org.apache.maven.resolver</groupId>
-            <artifactId>maven-resolver-api</artifactId>
-            <version>1.9.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.resolver</groupId>
-            <artifactId>maven-resolver-impl</artifactId>
-            <version>1.9.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.resolver</groupId>
-            <artifactId>maven-resolver-connector-basic</artifactId>
-            <version>1.9.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.resolver</groupId>
-            <artifactId>maven-resolver-transport-http</artifactId>
-            <version>1.9.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.resolver</groupId>
-            <artifactId>maven-resolver-util</artifactId>
-            <version>1.9.16</version>
-        </dependency>
-
-        <!-- Maven model & provider -->
+        <!-- Only used for Maven's version ordering (DefaultArtifactVersion) -->
         <dependency>
             <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model</artifactId>
-            <version>3.9.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model-builder</artifactId>
-            <version>3.9.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-resolver-provider</artifactId>
+            <artifactId>maven-artifact</artifactId>
             <version>3.9.5</version>
         </dependency>
         <dependency>
@@ -95,17 +46,22 @@
 
     <build>
         <plugins>
+            <!-- Compiles main and test sources with release 17. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
             </plugin>
+            <!-- Runs the JUnit 5 tests (classes ending in Test); no Maven subprocesses or network needed. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
             </plugin>
-            <!-- Optional convenience: run your main class easily -->
+            <!-- mvn compile exec:java -Dapp.config=... runs the entry point. exec:java runs the entry point in Maven's own JVM:
+                 a non-zero application status (1 failure, 2 incomplete) ends that JVM via System.exit with the
+                 same code and no BUILD summary; status 0 returns normally. A conflict found is still status 0.
+                 See README "Exit status". -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

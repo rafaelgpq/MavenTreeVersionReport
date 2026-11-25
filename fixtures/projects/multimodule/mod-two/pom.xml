@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.example.multi</groupId>
+        <artifactId>multi-parent</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>mod-two</artifactId>
+    <packaging>pom</packaging>
+    <!-- shared 2.0 through a single parent: differs from mod-one across modules, not a module-local conflict. -->
+    <dependencies>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-b</artifactId><version>1.0</version></dependency>
+    </dependencies>
+</project>

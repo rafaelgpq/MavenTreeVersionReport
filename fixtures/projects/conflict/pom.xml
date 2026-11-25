@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example.app</groupId>
+    <artifactId>conflict-app</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    <!-- shared 1.0 via lib-a, 2.0 via lib-b, 3.0 via lib-d -> lib-e; lib-c (test scope) adds shared 1.0 again. -->
+    <dependencies>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-a</artifactId><version>1.0</version></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-b</artifactId><version>1.0</version></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-c</artifactId><version>1.0</version><scope>test</scope></dependency>
+        <dependency><groupId>org.example.lib</groupId><artifactId>lib-d</artifactId><version>1.0</version></dependency>
+    </dependencies>
+</project>

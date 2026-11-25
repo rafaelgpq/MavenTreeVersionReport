@@ -1,0 +1,20 @@
+# Responsibility: prove that a clean checkout builds and passes every test on JDK 17 (the project release level).
+# It does not regenerate fixtures (that is an explicit, network-dependent, Windows-oriented maintainer step).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Build and test
+        run: mvn -B -ntp clean verify
